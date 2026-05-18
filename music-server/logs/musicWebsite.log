@@ -139,3 +139,5 @@
 2026-05-18 12:43:32 WARN  [o.apache.catalina.connector.Request] - Creating the temporary upload location [C:\Users\33413\AppData\Local\Temp\tomcat.8888.814753021570852219\work\Tomcat\localhost\ROOT] as it is required by the servlet [dispatcherServlet]
 2026-05-18 13:20:55 INFO  [c.e.wyk.service.impl.SongServiceImpl] - Query songs by singerId=2, count=5
 2026-05-18 13:21:02 INFO  [c.e.wyk.service.impl.SongServiceImpl] - Query songs by singerId=2, count=5
+2026-05-18 14:31:49 INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2026-05-18 14:31:49 INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
