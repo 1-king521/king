@@ -1,0 +1,122 @@
+diff --git a/node_modules/element-plus/es/components/slider/src/composables/use-slide.mjs b/node_modules/element-plus/es/components/slider/src/composables/use-slide.mjs
+index 92b4177..db5d678 100644
+--- a/node_modules/element-plus/es/components/slider/src/composables/use-slide.mjs
++++ b/node_modules/element-plus/es/components/slider/src/composables/use-slide.mjs
+@@ -82,7 +82,7 @@ const useSlide = (props, initData, emit) => {
+ 		return setPosition(newPercent);
+ 	};
+ 	const onSliderWrapperPrevent = (event) => {
+-		if (buttonRefs["firstButton"].value?.dragging || buttonRefs["secondButton"].value?.dragging) event.preventDefault();
++		if ((buttonRefs["firstButton"].value?.dragging || buttonRefs["secondButton"].value?.dragging) && event.cancelable) event.preventDefault();
+ 	};
+ 	const onSliderDown = async (event) => {
+ 		const buttonRef = handleSliderPointerEvent(event);
+diff --git a/node_modules/element-plus/es/components/slider/src/composables/use-slider-button.mjs b/node_modules/element-plus/es/components/slider/src/composables/use-slider-button.mjs
+index ffb3f17..eba42c5 100644
+--- a/node_modules/element-plus/es/components/slider/src/composables/use-slider-button.mjs
++++ b/node_modules/element-plus/es/components/slider/src/composables/use-slider-button.mjs
+@@ -51,10 +51,10 @@ const useSliderButton = (props, initData, emit) => {
+ 	};
+ 	const onButtonDown = (event) => {
+ 		if (disabled.value) return;
+-		event.preventDefault();
++		event.cancelable && event.preventDefault();
+ 		onDragStart(event);
+ 		window.addEventListener("mousemove", onDragging);
+-		window.addEventListener("touchmove", onDragging);
++		window.addEventListener("touchmove", onDragging, { passive: false });
+ 		window.addEventListener("mouseup", onDragEnd);
+ 		window.addEventListener("touchend", onDragEnd);
+ 		window.addEventListener("contextmenu", onDragEnd);
+@@ -148,7 +148,7 @@ const useSliderButton = (props, initData, emit) => {
+ 				isPreventDefault = false;
+ 				break;
+ 		}
+-		isPreventDefault && event.preventDefault();
++		isPreventDefault && event.cancelable && event.preventDefault();
+ 	};
+ 	const getClientXY = (event) => {
+ 		let clientX;
+@@ -201,7 +201,7 @@ const useSliderButton = (props, initData, emit) => {
+ 				emitChange();
+ 			}, 0);
+ 			window.removeEventListener("mousemove", onDragging);
+-			window.removeEventListener("touchmove", onDragging);
++			window.removeEventListener("touchmove", onDragging, { passive: false });
+ 			window.removeEventListener("mouseup", onDragEnd);
+ 			window.removeEventListener("touchend", onDragEnd);
+ 			window.removeEventListener("contextmenu", onDragEnd);
+diff --git a/node_modules/element-plus/es/components/slider/src/slider.vue_vue_type_script_setup_true_lang.mjs b/node_modules/element-plus/es/components/slider/src/slider.vue_vue_type_script_setup_true_lang.mjs
+index ea645b1..281f00f 100644
+--- a/node_modules/element-plus/es/components/slider/src/slider.vue_vue_type_script_setup_true_lang.mjs
++++ b/node_modules/element-plus/es/components/slider/src/slider.vue_vue_type_script_setup_true_lang.mjs
+@@ -128,7 +128,7 @@ var slider_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ defineC
+ 				]),
+ 				style: normalizeStyle(unref(runwayStyle)),
+ 				onMousedown: _cache[0] || (_cache[0] = (...args) => unref(onSliderDown) && unref(onSliderDown)(...args)),
+-				onTouchstartPassive: _cache[1] || (_cache[1] = (...args) => unref(onSliderDown) && unref(onSliderDown)(...args))
++				onTouchstart: _cache[1] || (_cache[1] = (...args) => unref(onSliderDown) && unref(onSliderDown)(...args))
+ 			}, [
+ 				createElementVNode("div", {
+ 					class: normalizeClass(unref(ns).e("bar")),
+diff --git a/node_modules/element-plus/lib/components/slider/src/composables/use-slide.js b/node_modules/element-plus/lib/components/slider/src/composables/use-slide.js
+index daf2a90..4676473 100644
+--- a/node_modules/element-plus/lib/components/slider/src/composables/use-slide.js
++++ b/node_modules/element-plus/lib/components/slider/src/composables/use-slide.js
+@@ -84,7 +84,7 @@ const useSlide = (props, initData, emit) => {
+ 		return setPosition(newPercent);
+ 	};
+ 	const onSliderWrapperPrevent = (event) => {
+-		if (buttonRefs["firstButton"].value?.dragging || buttonRefs["secondButton"].value?.dragging) event.preventDefault();
++		if ((buttonRefs["firstButton"].value?.dragging || buttonRefs["secondButton"].value?.dragging) && event.cancelable) event.preventDefault();
+ 	};
+ 	const onSliderDown = async (event) => {
+ 		const buttonRef = handleSliderPointerEvent(event);
+diff --git a/node_modules/element-plus/lib/components/slider/src/composables/use-slider-button.js b/node_modules/element-plus/lib/components/slider/src/composables/use-slider-button.js
+index 2676e4e..e46c359 100644
+--- a/node_modules/element-plus/lib/components/slider/src/composables/use-slider-button.js
++++ b/node_modules/element-plus/lib/components/slider/src/composables/use-slider-button.js
+@@ -53,10 +53,10 @@ const useSliderButton = (props, initData, emit) => {
+ 	};
+ 	const onButtonDown = (event) => {
+ 		if (disabled.value) return;
+-		event.preventDefault();
++		event.cancelable && event.preventDefault();
+ 		onDragStart(event);
+ 		window.addEventListener("mousemove", onDragging);
+-		window.addEventListener("touchmove", onDragging);
++		window.addEventListener("touchmove", onDragging, { passive: false });
+ 		window.addEventListener("mouseup", onDragEnd);
+ 		window.addEventListener("touchend", onDragEnd);
+ 		window.addEventListener("contextmenu", onDragEnd);
+@@ -150,7 +150,7 @@ const useSliderButton = (props, initData, emit) => {
+ 				isPreventDefault = false;
+ 				break;
+ 		}
+-		isPreventDefault && event.preventDefault();
++		isPreventDefault && event.cancelable && event.preventDefault();
+ 	};
+ 	const getClientXY = (event) => {
+ 		let clientX;
+@@ -203,7 +203,7 @@ const useSliderButton = (props, initData, emit) => {
+ 				emitChange();
+ 			}, 0);
+ 			window.removeEventListener("mousemove", onDragging);
+-			window.removeEventListener("touchmove", onDragging);
++			window.removeEventListener("touchmove", onDragging, { passive: false });
+ 			window.removeEventListener("mouseup", onDragEnd);
+ 			window.removeEventListener("touchend", onDragEnd);
+ 			window.removeEventListener("contextmenu", onDragEnd);
+diff --git a/node_modules/element-plus/lib/components/slider/src/slider.vue_vue_type_script_setup_true_lang.js b/node_modules/element-plus/lib/components/slider/src/slider.vue_vue_type_script_setup_true_lang.js
+index e23c8ba..212915c 100644
+--- a/node_modules/element-plus/lib/components/slider/src/slider.vue_vue_type_script_setup_true_lang.js
++++ b/node_modules/element-plus/lib/components/slider/src/slider.vue_vue_type_script_setup_true_lang.js
+@@ -129,7 +129,7 @@ var slider_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ (0, vue
+ 				]),
+ 				style: (0, vue.normalizeStyle)((0, vue.unref)(runwayStyle)),
+ 				onMousedown: _cache[0] || (_cache[0] = (...args) => (0, vue.unref)(onSliderDown) && (0, vue.unref)(onSliderDown)(...args)),
+-				onTouchstartPassive: _cache[1] || (_cache[1] = (...args) => (0, vue.unref)(onSliderDown) && (0, vue.unref)(onSliderDown)(...args))
++				onTouchstart: _cache[1] || (_cache[1] = (...args) => (0, vue.unref)(onSliderDown) && (0, vue.unref)(onSliderDown)(...args))
+ 			}, [
+ 				(0, vue.createElementVNode)("div", {
+ 					class: (0, vue.normalizeClass)((0, vue.unref)(ns).e("bar")),

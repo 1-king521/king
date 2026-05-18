@@ -1,0 +1,15 @@
+export const enum RouterName {
+  Home = "/home",
+  Info = "/info",
+  Song = "/song",
+  Singer = "/singer",
+  SongList = "/songSheet",
+  ListSong = "/listSong",
+  Comment = "/Comment",
+  Consumer = "/consumer",
+  Collect = "/collect",
+  Banner = "/banner",
+  Error = "/404",
+  SignIn = "/",
+  SignOut = "0",
+}

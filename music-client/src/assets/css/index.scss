@@ -1,0 +1,97 @@
+@import "./var.scss";
+@import "./global.scss";
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+hr,
+img,
+a,
+form,
+label,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul,
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.pagination {
+  @include layout(center);
+  transform: translateY(15px);
+}
+
+@media screen and (min-width: $sm) {
+  .play-list-container {
+    margin: 0 8% 30px 8%;
+  }
+}
+
+/*el*/
+.el-select-dropdown__item {
+  display: block !important;
+}
+
+/* Element Plus 图片加载失败占位：改为圆底白字 K */
+.el-image__error {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #6b7fd7, #4a59a8);
+  color: #fff;
+  font-size: 0;
+  line-height: 0;
+}
+
+.el-image__error .el-icon,
+.el-image__error svg {
+  display: none !important;
+}
+
+.el-image__error::before {
+  content: "K";
+  font-size: clamp(16px, 42%, 32px);
+  font-weight: 700;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1;
+  color: #fff;
+}

@@ -1,0 +1,32 @@
+package com.example.wyk.model.request;
+
+import lombok.Data;
+
+import java.util.Date;
+
+/**
+ * @Author 祝英台炸油条
+ * @Time : 2022/6/6 14:29
+ **/
+@Data
+public class CommentRequest {
+    private Integer id;
+
+    private Integer userId;
+
+    private Integer songId;
+
+    private Integer songListId;
+
+    private String content;
+
+    private Date createTime;
+
+    private Byte nowType;
+
+    /** 点赞数（更新评论点赞时传入） */
+    private Integer likeCount;
+
+    /** 被回复的评论 id；发表根评论时不传或传 null */
+    private Integer parentId;
+}
