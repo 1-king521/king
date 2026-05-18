@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">music-website</h1>
 
 <p align="center"><a href="README.en.md">English README</a></p>
@@ -218,3 +219,6 @@ docker compose up --build
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. The project cannot be used for commercial purposes.
 
 Copyright (c) 2018 Yin-Hongwei 
+=======
+# king
+>>>>>>> 95ca9904e056f1133d342f0768e5fd1ddc584c7f
