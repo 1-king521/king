@@ -5,11 +5,11 @@ import com.example.wyk.common.R;
 import com.example.wyk.model.domain.Admin;
 import com.example.wyk.model.request.AdminRequest;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public interface AdminService extends IService<Admin> {
 

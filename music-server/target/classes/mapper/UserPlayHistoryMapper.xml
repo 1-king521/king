@@ -12,13 +12,15 @@
   </sql>
 
   <select id="selectUserPlayHistory" resultType="java.util.HashMap">
-    SELECT id,
-           user_id  AS userId,
-           song_id  AS songId,
-           play_time AS playTime
-    FROM user_play_history
-    WHERE user_id = #{userId}
-    ORDER BY play_time DESC
+    SELECT h.id,
+           h.user_id   AS userId,
+           h.song_id   AS songId,
+           h.play_time AS playTime,
+           s.name      AS songName
+    FROM user_play_history h
+           LEFT JOIN song s ON h.song_id = s.id
+    WHERE h.user_id = #{userId}
+    ORDER BY h.play_time DESC
     LIMIT 50
   </select>
 </mapper>

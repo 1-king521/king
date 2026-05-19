@@ -3,7 +3,7 @@ package com.example.wyk.exception;
 import com.example.wyk.common.R;
 import java.io.IOException;
 import java.net.ConnectException;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.http.HttpStatus;

@@ -4,6 +4,12 @@ const { defineConfig } = require("@vue/cli-service");
 const BACKEND_TARGET = process.env.VUE_APP_BACKEND_TARGET || "http://localhost:8888";
 
 module.exports = defineConfig({
+  pages: {
+    index: {
+      entry: "src/main.ts",
+      title: "Wyk-music",
+    },
+  },
   transpileDependencies: true,
   devServer: {
     proxy: BACKEND_TARGET,

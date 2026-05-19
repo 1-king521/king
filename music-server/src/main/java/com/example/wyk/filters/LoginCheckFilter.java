@@ -5,11 +5,11 @@ import com.example.wyk.common.R;
 import com.example.wyk.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,7 +17,7 @@ import java.io.IOException;
  * <p>
  * 原先仅对 URL 包含 {@code login} 放行，导致未登录用户访问首页/歌单/歌曲等全部被拦截，前后端联调失败。
  */
-@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/*", asyncSupported = true)
 public class LoginCheckFilter implements Filter {
 
     @Override

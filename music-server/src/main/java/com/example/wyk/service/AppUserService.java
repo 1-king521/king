@@ -7,7 +7,7 @@ import com.example.wyk.model.request.AppUserRequest;
 import com.example.wyk.model.request.CodeLoginRequest;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public interface AppUserService extends IService<AppUser> {
 

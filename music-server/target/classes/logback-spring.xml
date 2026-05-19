@@ -5,7 +5,8 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yy-MM-dd HH:mm:ss,SSS} %5level %logger{36}:%line - %msg%n</pattern>
+            <!-- Logback：%d{格式,时区} 里逗号是「格式与时区」分隔符；毫秒须用 .SSS，不要用 ,SSS（否则会把 SSS 当时区） -->
+            <pattern>%d{yy-MM-dd HH:mm:ss.SSS} %5level %logger{36}:%line - %msg%n</pattern>
         </encoder>
     </appender>
 

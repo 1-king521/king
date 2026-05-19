@@ -12,8 +12,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    name: "yin-app-layout",
-    component: () => import("@/components/layouts/YinAppLayout.vue"),
+    name: "wyk-app-layout",
+    component: () => import("@/components/layouts/WykAppLayout.vue"),
     children: [
       {
         path: "/",
