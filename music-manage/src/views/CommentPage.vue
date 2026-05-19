@@ -24,18 +24,18 @@
   </div>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
 </template>
 
 <script lang="ts">
 import { defineComponent, getCurrentInstance, watch, ref, computed } from "vue";
 import { useAppStore } from "@/stores/app";
 import { getCommentOfSongId, getCommentOfSongListId, getUserOfId, deleteComment } from "@/api";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    WykDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();

@@ -104,7 +104,7 @@
         </span>
       </template>
     </el-dialog>
-    <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+    <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
   </div>
 </template>
 
@@ -120,7 +120,7 @@ import {
   deleteBanner,
   updateBannerUrl,
 } from "@/api";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 import { getUploadHeaders } from "@/utils/request";
 
 const { beforeImgUpload } = mixin();

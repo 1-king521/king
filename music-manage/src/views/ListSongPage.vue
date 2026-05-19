@@ -42,7 +42,7 @@
   </el-dialog>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
 </template>
 
 <script lang="ts">
@@ -55,11 +55,11 @@ import {
   setListSong,
   deleteListSong,
 } from "@/api";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    WykDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();

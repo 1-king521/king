@@ -156,7 +156,7 @@
   </el-dialog>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
 </template>
 
 <script lang="ts">
@@ -175,7 +175,7 @@ import {
   deleteSong,
 } from "@/api";
 import { parseLyric } from "@/utils";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 import { getUploadHeaders } from "@/utils/request";
 
 type SongRow = {
@@ -186,7 +186,7 @@ type SongRow = {
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    WykDelDialog,
     VideoPlay,
     VideoPause,
   },

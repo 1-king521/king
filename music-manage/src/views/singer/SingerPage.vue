@@ -135,14 +135,14 @@
   </el-dialog>
 
   <!-- 删除提示框 -->
-  <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+  <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
 </template>
 
 <script lang="ts">
 import { defineComponent, getCurrentInstance, watch, ref, reactive, computed } from "vue";
 import { useAppStore } from "@/stores/app";
 import mixin from "@/mixins/mixin";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 import {
   attachImageUrl,
   attachApiUrl,
@@ -157,7 +157,7 @@ import { getUploadHeaders } from "@/utils/request";
 
 export default defineComponent({
   components: {
-    YinDelDialog,
+    WykDelDialog,
   },
   setup() {
     const { proxy } = getCurrentInstance();

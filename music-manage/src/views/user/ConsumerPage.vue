@@ -54,7 +54,7 @@
     </div>
 
     <!-- 删除提示框 -->
-    <yin-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></yin-del-dialog>
+    <wyk-del-dialog :delVisible="delVisible" @confirm="confirm" @cancelRow="delVisible = $event"></wyk-del-dialog>
   </div>
 </template>
 
@@ -62,7 +62,7 @@
 import { computed, ref, watch } from "vue";
 import { ElMessage } from "element-plus";
 import { attachImageUrl, attachApiUrl, getAllUser, deleteUser } from "@/api";
-import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import WykDelDialog from "@/components/dialog/WykDelDialog.vue";
 import { getBirth } from "@/utils";
 import { getUploadHeaders } from "@/utils/request";
 import mixin from "@/mixins/mixin";

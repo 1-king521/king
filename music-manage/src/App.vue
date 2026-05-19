@@ -2,9 +2,9 @@
   <div id="app">
     <router-view v-slot="{ Component }">
       <component v-if="isLoginRoute" :is="Component" />
-      <yin-layout v-else-if="Component">
+      <wyk-layout v-else-if="Component">
         <component :is="Component" />
-      </yin-layout>
+      </wyk-layout>
     </router-view>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import YinLayout from "@/components/layouts/YinLayout.vue";
+import WykLayout from "@/components/layouts/WykLayout.vue";
 import { useAppStore } from "@/stores/app";
 import { MANAGE_ADMIN_AVATAR_KEY } from "@/utils/request";
 
